@@ -17,8 +17,8 @@ public class ThreadState {
         first.start();
         second.start();
 
-        while (first.getState() != Thread.State.TERMINATED &&
-               second.getState() != Thread.State.TERMINATED) {
+        while (first.getState() != Thread.State.TERMINATED
+                && second.getState() != Thread.State.TERMINATED) {
             soutStateAndNameOfThread(first);
             soutStateAndNameOfThread(second);
 
@@ -28,7 +28,8 @@ public class ThreadState {
         out.println(PROGRAM_FINISHED_TASKS_MESSAGE);
 
     }
-    private static void soutStateAndNameOfThread(Thread thread){
+
+    private static void soutStateAndNameOfThread(Thread thread) {
         out.println(thread.getState() + " " + thread.getName());
     }
 }
