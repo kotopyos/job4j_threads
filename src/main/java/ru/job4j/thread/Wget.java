@@ -49,7 +49,9 @@ public class Wget implements Runnable {
         String url = args[0];
         int speed = Integer.parseInt(args[1]);
         UrlValidator validator = new UrlValidator();
-        validator.isValid(url);
+        if (!validator.isValid(url)) {
+            throw new RuntimeException("Invalid URL");
+        }
         Thread wget = new Thread(new Wget(url, speed));
         wget.start();
         wget.join();
