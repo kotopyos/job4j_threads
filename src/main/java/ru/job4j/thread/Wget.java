@@ -38,19 +38,15 @@ public class Wget implements Runnable {
 
                 if (totalBytes >= speed) {
                     long elapsedTime = System.currentTimeMillis() - intervalStart;
-                    long expectedTime = totalBytes / speed;
-                    System.out.println("Elapsed: " + elapsedTime + "ms");
-                    System.out.println("Expected: " + expectedTime + "ms");
 
-                    if (elapsedTime < expectedTime) {
-                        long pause = expectedTime - elapsedTime;
-                        Thread.sleep(pause);
-                        System.out.println("Pause: " + pause + "ms\n");
+                    if (elapsedTime < 1000) {
+                        Thread.sleep(1000 - elapsedTime);
                     }
+
+                    totalBytes = 0;
+                    intervalStart = System.currentTimeMillis();
                 }
 
-                totalBytes = 0;
-                intervalStart = System.currentTimeMillis();
             }
             System.out.println(Files.size(file.toPath()) + " bytes");
         } catch (InterruptedException e) {
