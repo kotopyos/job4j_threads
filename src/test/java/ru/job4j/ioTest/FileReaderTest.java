@@ -1,4 +1,4 @@
-package ioTest;
+package ru.job4j.ioTest;
 
 import org.junit.Rule;
 import org.junit.Test;
