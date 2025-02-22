@@ -8,7 +8,6 @@ public final class FileReader {
     private final File file;
     private final Charset charset;
 
-
     public FileReader(File file, Charset charset) {
         this.file = file;
         this.charset = charset;
