@@ -1,10 +1,11 @@
 package ru.job4j.threads;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import ru.job4j.Count;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class CountTest {
 
@@ -20,6 +21,6 @@ public class CountTest {
         first.join();
         second.join();
         /* Проверяем результат. */
-        assertThat(count.get(), is(2));
+        assertThat(count.get()).isEqualTo(2);
     }
 }
